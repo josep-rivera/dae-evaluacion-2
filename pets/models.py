@@ -17,7 +17,7 @@ class Pet(models.Model):
     nombre = models.CharField(max_length=100)
     especie = models.CharField(max_length=50)
     edad = models.IntegerField()
-    dueno = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name="mascotas")
+    dueño = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name="mascotas")
 
     def __str__(self):
         return f"{self.nombre} ({self.especie})"

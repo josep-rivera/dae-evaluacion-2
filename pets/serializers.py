@@ -13,10 +13,10 @@ class PetSerializer(serializers.ModelSerializer):
         model = Pet
         fields = ["id", "nombre", "especie", "edad", "dueño"]
 
-
 class PetDetailSerializer(serializers.ModelSerializer):
     dueño = OwnerSerializer(read_only=True)
+    dueño_nombre = serializers.CharField(source="dueño.nombre", read_only=True)
 
     class Meta:
         model = Pet
-        fields = ["id", "nombre", "especie", "edad", "dueño"]
+        fields = ["id", "nombre", "especie", "edad", "dueño", "dueño_nombre"]
